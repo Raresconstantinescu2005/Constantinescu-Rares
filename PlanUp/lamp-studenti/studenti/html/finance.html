@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panou Organizator - PlanUp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="finance.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="admin.html"> <i class="fa-solid fa-shapes"></i>
+                    Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-users"></i>
+                    Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bilete
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html" class="active">
+                    <i class="fa-solid fa-comments"></i>
+                    Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i>
+                    Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Setări
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    
+        <main class="main-content" id="main-content">
+            
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <h1>🧭 Vânzări și Finanțe</h1>
+            <p class="subtitlu">O imagine de ansamblu a veniturilor și tranzacțiilor tale.</p>
+
+            <section class="stat-cards-container">
+                
+                <div class="stat-card">
+                    <h3>Încasări Totale (Brut)</h3>
+                    <p class="stat-number" id="total-revenue">0 RON</p>
+                    <span class="stat-description">Suma totală generată din vânzări.</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Comision Platformă</h3>
+                    <p class="stat-number" id="total-commission">0 RON</p>
+                    <span class="stat-description">Comisionul total reținut de PlanUp.</span>
+                </div>
+
+                <div class="stat-card available">
+                    <h3>Disponibil pentru Retragere</h3>
+                    <p class="stat-number" id="available-withdrawal">0 RON</p>
+                    <span class="stat-description">Fondurile eligibile pentru transfer.</span>
+                    <button class="btn-withdraw" id="withdraw-button">Retrage Fonduri</button>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Retras</h3>
+                    <p class="stat-number" id="total-withdrawn">0 RON</p>
+                    <span class="stat-description">Suma totală transferată în contul tău.</span>
+                </div>
+
+            </section>
+
+            <section class="data-section">
+                <h2>Vânzări pe Eveniment</h2>
+                <div class="table-wrapper">
+                    <table class="data-table" id="events-table">
+                        <thead>
+                            <tr>
+                                <th>Eveniment</th>
+                                <th>Bilete Vândute</th>
+                                <th>Încasări Brute</th>
+                                <th>Comision</th>
+                                <th>Încasări Nete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="events-tbody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="data-section">
+                <h2>Istoric Retrageri</h2>
+                <div class="table-wrapper">
+                    <table class="data-table" id="withdrawals-table">
+                        <thead>
+                            <tr>
+                                <th>ID Tranzacție</th>
+                                <th>Data Solicitării</th>
+                                <th>Suma</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody id="withdrawals-tbody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+/* ======================================= */
+/* 0. SETARI GLOBALE & CULORI              */
+/* ======================================= */
+:root {
+    --culoare-mov: #7e3af2;
+    --culoare-negru: #18181b; 
+    --culoare-gri-bg: #f4f7f6;
+    --culoare-alb: #ffffff;
+    --culoare-text: #333;
+    --culoare-text-gri: #9ca3af;
+    --culoare-border: #e5e7eb;
+    --culoare-gri-inchis: #444;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--culoare-gri-bg);
+    color: var(--culoare-text);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ======================================= */
+/* 1. SIDEBAR (Meniul din stanga)          */
+/* ======================================= */
+.sidebar {
+    width: 260px;
+    background-color: var(--culoare-negru);
+    padding: 24px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Sectiunea de Profil Admin */
+.admin-profile {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--culoare-gri-inchis);
+    margin-bottom: 20px;
+}
+.admin-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--culoare-mov);
+    object-fit: cover;
+    background-color: #333;
+    margin-bottom: 15px;
+}
+.admin-profile .admin-name { 
+    margin: 0 0 5px 0; 
+    font-size: 1.2em; 
+    color: var(--culoare-alb); 
+    font-weight: 600; 
+}
+.admin-profile .admin-email { 
+    margin: 0; 
+    font-size: 0.9em; 
+    color: var(--culoare-text-gri); 
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Permite elementului sa creasca */
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--culoare-text-gri);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.sidebar-nav a:hover {
+    background-color: #27272a;
+    color: var(--culoare-alb);
+}
+
+.sidebar-nav a.active {
+    background-color: var(--culoare-mov);
+    color: var(--culoare-alb);
+    box-shadow: 0 4px 10px rgba(126, 58, 242, 0.3);
+}
+
+.sidebar-nav a.active:hover {
+    background-color: #6a2bd9;
+}
+
+/* "Setari" este la finalul listei */
+.sidebar-nav li.nav-footer {
+    margin-top: auto; /* Impinge in jos */
+}
+
+/* ======================================= */
+/* 2. MAIN CONTENT (Continutul principal)  */
+/* ======================================= */
+.main-content {
+    flex: 1; /* Ocupa restul spatiului */
+    height: 100vh;
+    overflow-y: auto; /* Permite scroll doar pe continut */
+    padding: 32px;
+}
+
+/* Grid-ul principal pentru layout */
+.dashboard-grid {
+    display: grid;
+    gap: 24px;
+    /* Definim coloanele pentru un layout flexibil */
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* ======================================= */
+/* 3. CARDURI KPI (Indicatori)             */
+/* ======================================= */
+.kpi-box {
+    background-color: var(--culoare-alb);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--culoare-border);
+}
+
+.kpi-box h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: var(--culoare-text-gri);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.kpi-box .value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--culoare-mov);
+}
+
+/* ======================================= */
+/* 4. GRAFICE (Charts)                     */
+/* ======================================= */
+.chart-container {
+    background-color: var(--culoare-alb);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--culoare-border);
+    position: relative;
+    min-height: 350px;
+}
+
+.chart-container h3 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.25em;
+}
+
+/* Graficul de Vanzari - ocupa 2 spatii */
+.chart-vanzari {
+    grid-column: span 2;
+}
+
+/* Graficul Top Evenimente - ocupa 2 spatii */
+.chart-top-evenimente {
+    grid-column: span 2;
+}
+
+/* ======================================= */
+/* 5. WIDGET-URI (Evenimente & Conversie)  */
+/* ======================================= */
+.widget-evenimente {
+    grid-column: span 2;
+}
+
+.widget-conversie {
+    grid-column: span 2;
+}
+
+/* Stil pentru lista de evenimente viitoare */
+.events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.events-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 15px;
+}
+.event-details {
+    font-weight: 600;
+}
+.event-details span {
+    display: block;
+    font-size: 0.9em;
+    color: var(--culoare-text-gri);
+    font-weight: 400;
+    margin-top: 4px;
+}
+.event-progress {
+    text-align: right;
+}
+.event-progress .percentage {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--culoare-text);
+    margin-left: 10px;
+}
+.event-progress .tickets {
+    font-size: 0.9em;
+    color: var(--culoare-text-gri);
+}
+.event-progress progress {
+    width: 120px;
+    height: 8px;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+}
+/* Stil pentru progress bar (Chrome/Safari) */
+.event-progress progress::-webkit-progress-bar {
+    background-color: #eee;
+}
+.event-progress progress::-webkit-progress-value {
+    background-color: var(--culoare-mov);
+}
+/* Stil pentru progress bar (Firefox) */
+.event-progress progress::-moz-progress-bar {
+    background-color: var(--culoare-mov);
+}
+
+/* Stil pentru Rata de Conversie */
+.conversion-chart-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Inaltime fixa pentru a centra graficul */
+}
+
+.conversion-percentage {
+    position: absolute;
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--culoare-text);
+}
+
+.conversion-chart-area canvas {
+    max-width: 250px; 
+    max-height: 250px;
+}
+
+.conversion-legend {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap; /* Pentru ecrane mai mici */
+}
+.conversion-legend li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* ======================================= */
+/* 6. RESPONSIVE (Adaptare pe ecrane mici) */
+/* ======================================= */
+
+/* Tableta */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        /* Trecem la 2 coloane */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Punem sidebar-ul deasupra */
+        height: auto;
+        overflow: visible;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        overflow-y: hidden;
+        /* Poti implementa un meniu hamburger aici */
+        /* Deocamdata, afisam profilul si ascundem meniul */
+        padding-bottom: 0;
+    }
+    .sidebar-nav {
+        display: none; /* Ascundem meniul pe mobil */
+    }
+    
+    .admin-profile {
+        /* Modificam profilul sa fie orizontal pe mobil */
+        display: flex;
+        align-items: center;
+        text-align: left;
+        border-bottom: 1px solid var(--culoare-gri-inchis);
+        margin-bottom: 0;
+    }
+    .admin-profile img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .main-content {
+        height: auto;
+        overflow-y: visible;
+        padding: 20px;
+    }
+    .dashboard-grid {
+        /* Trecem la 1 coloana */
+        grid-template-columns: 1fr;
+    }
+    /* Toate elementele vor ocupa 100% din latime */
+    .chart-vanzari,
+    .chart-top-evenimente,
+    .widget-evenimente,
+    .widget-conversie {
+        grid-column: span 1;
+    }
+    .kpi-box .value {
+        font-size: 2em; /* Micsoram putin textul */
+    }
+    .events-list li {
+        grid-template-columns: 1fr; /* Punem detaliile pe 1 coloana */
+        gap: 10px;
+    }
+    .event-progress {
+        text-align: left;
+    }
+}
+
+/* ======================================= */
+/* 7. FIX: Stabilizare grafice (Chart.js)  */
+/* ======================================= */
+
+/* Forțăm containerele de chart să aibă o înălțime fixă și proporțională */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Înălțime fixă pentru stabilitate */
+    max-height: 450px;
+    position: relative;
+}
+
+/* Canvasul nu va mai schimba layout-ul */
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 350px;
+}
+
+/* Titlul graficului rămâne fix sus */
+.chart-container h3 {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    margin: 0;
+}

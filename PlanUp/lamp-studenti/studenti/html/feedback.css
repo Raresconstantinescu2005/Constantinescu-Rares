@@ -1,0 +1,394 @@
+/* ======================================= */
+/* 0. SETARI GLOBALE & CULORI             */
+/* ======================================= */
+:root {
+    --culoare-mov: #7e3af2;
+    --culoare-negru: #18181b; 
+    --culoare-gri-bg: #f4f7f6;
+    --culoare-alb: #ffffff;
+    --culoare-text: #333;
+    --culoare-text-gri: #9ca3af;
+    --culoare-border: #e5e7eb;
+    --culoare-gri-inchis: #444;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--culoare-gri-bg);
+    color: var(--culoare-text);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ======================================= */
+/* 1. SIDEBAR (Meniul din stanga)         */
+/* ======================================= */
+.sidebar {
+    width: 260px;
+    background-color: var(--culoare-negru);
+    padding: 24px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-shrink: 0; /* Adăugat pentru a preveni micșorarea meniului */
+}
+
+/* Sectiunea de Profil Admin */
+.admin-profile {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--culoare-gri-inchis);
+    margin-bottom: 20px;
+}
+.admin-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--culoare-mov);
+    object-fit: cover;
+    background-color: #333;
+    margin-bottom: 15px;
+}
+.admin-profile .admin-name { 
+    margin: 0 0 5px 0; 
+    font-size: 1.2em; 
+    color: var(--culoare-alb); 
+    font-weight: 600; 
+}
+.admin-profile .admin-email { 
+    margin: 0; 
+    font-size: 0.9em; 
+    color: var(--culoare-text-gri); 
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Permite elementului sa creasca */
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--culoare-text-gri);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.sidebar-nav a:hover {
+    background-color: #27272a;
+    color: var(--culoare-alb);
+}
+
+.sidebar-nav a.active {
+    background-color: var(--culoare-mov);
+    color: var(--culoare-alb);
+    box-shadow: 0 4px 10px rgba(126, 58, 242, 0.3);
+}
+
+.sidebar-nav a.active:hover {
+    background-color: #6a2bd9;
+}
+
+/* "Setari" este la finalul listei */
+.sidebar-nav li.nav-footer {
+    margin-top: auto; /* Impinge in jos */
+}
+
+/* ======================================= */
+/* 2. MAIN CONTENT (Continutul principal)  */
+/* ======================================= */
+.main-content {
+    flex: 1; /* Ocupa restul spatiului */
+    height: 100vh;
+    overflow-y: auto; /* Permite scroll doar pe continut */
+    padding: 32px;
+}
+
+/* ======================================= */
+/* 3. STILURI SPECIFICE PAGINII DE FEEDBACK*/
+/* ======================================= */
+
+/* Puteți folosi culorile noi din :root */
+:root {
+    --primary-purple: var(--culoare-mov);
+    --light-purple: #f3e5f5; /* Sau o altă nuanță deschisă de mov */
+    --black: var(--culoare-negru);
+    --white: var(--culoare-alb);
+    --grey-border: var(--culoare-border);
+    --grey-text: var(--culoare-text-gri);
+}
+
+.feedback-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--primary-purple);
+    text-align: left; /* Aliniere la stânga pentru a se potrivi cu designul dashboard-ului */
+    border-bottom: 2px solid var(--grey-border);
+    padding-bottom: 10px;
+    font-size: 2em; /* Mărime font potrivită */
+}
+
+h2 {
+    color: var(--black);
+    border-bottom: 1px solid var(--grey-border);
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+h3 {
+    margin-top: 0;
+    color: var(--primary-purple);
+}
+
+label {
+    font-weight: 600;
+    color: var(--black);
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid var(--grey-border);
+    border-radius: 8px; /* Rotunjire potrivită */
+    font-size: 1em;
+    width: 100%;
+    background-color: var(--white);
+}
+
+/* --- Tablou de Bord (KPIs) --- */
+.dashboard-section {
+    background-color: var(--white); /* Fundal alb */
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border: 1px solid var(--culoare-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.event-selector {
+    margin-bottom: 20px;
+}
+
+.event-selector #event-select {
+    font-size: 1.1em;
+    font-weight: 600;
+    border-color: var(--primary-purple);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.kpi-card {
+    background-color: var(--culoare-gri-bg); /* Fundal gri deschis */
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 5px solid var(--primary-purple);
+}
+
+.kpi-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: var(--culoare-text-gri);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.kpi-value {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--primary-purple);
+}
+
+/* --- Controale (Filtre/Sortare) --- */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    background: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--culoare-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- Lista de Recenzii --- */
+.review-list-section h2 {
+    font-size: 1.25em;
+    margin-bottom: 20px;
+}
+
+.review-card {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 24px;
+    transition: background-color 0.3s; 
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-participant {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: var(--grey-text);
+}
+
+.review-rating {
+    font-size: 1.2em;
+    color: var(--primary-purple); /* Sau o culoare 'aurie' */
+    margin-bottom: 10px;
+}
+
+.review-text {
+    color: var(--black);
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* --- Zona de Răspuns --- */
+.response-area {
+    margin-top: 20px;
+    border-top: 1px solid var(--grey-border);
+    padding-top: 20px;
+}
+
+.response-area textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid var(--grey-border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.btn-respond {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-respond:hover {
+    background-color: #6a2bd9; /* O nuanță puțin mai deschisă a mov-ului */
+}
+
+.organizer-response {
+    background-color: var(--culoare-gri-bg);
+    border-left: 4px solid var(--primary-purple);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.organizer-response strong {
+    color: var(--primary-purple);
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* ======================================= */
+/* 4. RESPONSIVE (Adaptare pe ecrane mici) */
+/* ======================================= */
+
+/* Tableta */
+@media (max-width: 1200px) {
+    .controls {
+        grid-template-columns: 1fr; /* Un singur filtru pe rând */
+    }
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Punem sidebar-ul deasupra */
+        height: auto;
+        overflow: visible;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        overflow-y: hidden;
+        padding-bottom: 0;
+    }
+    .sidebar-nav {
+        display: none; /* Ascundem meniul pe mobil (necesită un buton hamburger) */
+    }
+    
+    .admin-profile {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        border-bottom: 1px solid var(--culoare-gri-inchis);
+        margin-bottom: 0;
+    }
+    .admin-profile img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .main-content {
+        height: auto;
+        overflow-y: visible;
+        padding: 20px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr; /* Un singur KPI pe rând */
+    }
+}

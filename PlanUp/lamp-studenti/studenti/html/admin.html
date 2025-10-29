@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Evenimente</title>
+
+    <link rel="stylesheet" href="admin.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#" class="active">
+                    <i class="fa-solid fa-shapes"></i>
+                    Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-users"></i>
+                    Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bilete
+                </a>
+            </li>
+            <li>
+                <a href="marketing.html">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html">
+                    <i class="fa-solid fa-comments"></i>
+                    Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i>
+                    Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Setări
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        
+        <div class="dashboard-grid">
+
+            <div class="kpi-box">
+                <h4>Utilizatori</h4>
+                <div class="value">1,245</div>
+            </div>
+
+            <div class="kpi-box">
+                <h4>Evenimente</h4>
+                <div class="value">56</div>
+            </div>
+
+            <div class="kpi-box">
+                <h4>Bilete vândute</h4>
+                <div class="value">7,890</div>
+            </div>
+
+            <div class="kpi-box">
+                <h4>Venit</h4>
+                <div class="value">24,560€</div>
+            </div>
+
+            <div class="chart-container chart-vanzari">
+                <h3>Vânzări lunare</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+
+            <div class="chart-container chart-top-evenimente">
+                <h3>Top evenimente</h3>
+                <canvas id="eventsChart"></canvas>
+            </div>
+
+            <div class="chart-container widget-evenimente">
+                <h3>Evenimente viitoare</h3>
+                <ul class="events-list">
+                    <li>
+                        <div class="event-details">
+                            Festival de primăvară
+                            <span>Aprilie 20, 2024</span>
+                        </div>
+                        <div class="event-progress">
+                            <span class="tickets">200 bilete rămase</span>
+                            <progress value="80" max="100"></progress>
+                            <span class="percentage">80%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="event-details">
+                            Lansare carte
+                            <span>Mai 5, 2024</span>
+                        </div>
+                        <div class="event-progress">
+                            <span class="tickets">150 bilete rămase</span>
+                            <progress value="60" max="100"></progress>
+                            <span class="percentage">60%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="event-details">
+                            Seminar
+                            <span>Mai 12, 2024</span>
+                        </div>
+                        <div class="event-progress">
+                            <span class="tickets">80 bilete rămase</span>
+                            <progress value="20" max="100"></progress>
+                            <span class="percentage">20%</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="chart-container widget-conversie">
+                <h3>Rata de conversie</h3>
+                <div class="conversion-chart-area">
+                    <span class="conversion-percentage">12%</span>
+                    <canvas id="conversionChart"></canvas>
+                </div>
+                <ul class="conversion-legend">
+                    <li>
+                        <span class="legend-dot" style="background-color: #7e3af2;"></span>
+                        Standard
+                    </li>
+                    <li>
+                        <span class="legend-dot" style="background-color: #a87ff0;"></span>
+                        VIP
+                    </li>
+                    <li>
+                        <span class="legend-dot" style="background-color: #d1bcfc;"></span>
+                        Early-bird
+                    </li>
+                </ul>
+            </div>
+
+        </div> </main>
+
+    <script src="app.js" defer></script> 
+</body>
+</html>

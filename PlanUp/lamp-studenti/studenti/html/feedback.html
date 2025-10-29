@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Organizator</title>
+    <link rel="stylesheet" href="admin.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="admin.html"> <i class="fa-solid fa-shapes"></i>
+                    Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-users"></i>
+                    Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bilete
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html" class="active">
+                    <i class="fa-solid fa-comments"></i>
+                    Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i>
+                    Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Setări
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <div class="feedback-container">
+            <h1>Feedback Organizator</h1>
+
+            <section class="dashboard-section">
+                <div class="event-selector">
+                    <label for="event-select">Afișare feedback pentru:</label>
+                    <select id="event-select">
+                        <option value="all">Toate Evenimentele</option>
+                        <option value="conferinta-tech-2025">Conferința Tech 2025</option>
+                        <option value="workshop-design-2025">Workshop Design 2025</option>
+                    </select>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="kpi-card">
+                        <h3>Rating Mediu</h3>
+                        <div class="kpi-value" id="kpi-avg-rating">-- / 5</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Total Recenzii</h3>
+                        <div class="kpi-value" id="kpi-total-reviews">0</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Rată de Răspuns</h3>
+                        <div class="kpi-value" id="kpi-response-rate">--%</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="control-group">
+                    <label for="filter-rating">Filtrează după Rating:</label>
+                    <select id="filter-rating">
+                        <option value="all">Toate</option>
+                        <option value="5">★★★★★</option>
+                        <option value="4">★★★★☆</option>
+                        <option value="3">★★★☆☆</option>
+                        <option value="2">★★☆☆☆</option>
+                        <option value="1">★☆☆☆☆</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="filter-status">Filtrează după Stare:</label>
+                    <select id="filter-status">
+                        <option value="all">Toate</option>
+                        <option value="responded">Cu Răspuns</option>
+                        <option value="no-response">Fără Răspuns</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="sort-by">Sortează după:</label>
+                    <select id="sort-by">
+                        <option value="newest">Cele mai noi</option>
+                        <option value="oldest">Cele mai vechi</option>
+                        <option value="rating-high">Rating (Pozitive prima dată)</option>
+                        <option value="rating-low">Rating (Negative prima dată)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="review-list-section">
+                <h2>Listă Recenzii</h2>
+                <div id="review-list">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="feedback.js"></script>
+</body>
+</html>
