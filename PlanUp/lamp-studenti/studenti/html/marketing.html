@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Marketing</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="admin.css">
+    
+    <link rel="stylesheet" href="marketing.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-shapes"></i> Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-chart-pie"></i> Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-calendar-days"></i> Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i> Bilete
+                </a>
+            </li>
+            <li>
+                <a href="marketing.html" class="active">
+                    <i class="fa-solid fa-bullhorn"></i> Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i> Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html">
+                    <i class="fa-solid fa-comments"></i> Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i> Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i> Setări
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <div class="main-header">
+            <h1><i class="fa-solid fa-bullhorn"></i> Panou Marketing</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary"><i class="fa-solid fa-tags"></i> Gestionează Promoții</button>
+                <button class="btn btn-primary" id="openModalBtn"><i class="fa-solid fa-plus"></i> Creare Campanie Nouă</button>
+            </div>
+        </div>
+
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <i class="fa-solid fa-eye kpi-icon"></i>
+                <div class="kpi-value">124.5K</div>
+                <p class="kpi-label">Vizualizări Evenimente (30 zile)</p>
+            </div>
+            <div class="kpi-card">
+                <i class="fa-solid fa-ticket kpi-icon"></i>
+                <div class="kpi-value">1,820</div>
+                <p class="kpi-label">Bilete vândute (Campanii)</p>
+            </div>
+            <div class="kpi-card">
+                <i class="fa-solid fa-wallet kpi-icon"></i>
+                <div class="kpi-value">2,500 RON</div>
+                <p class="kpi-label">Buget utilizat (Luna curentă)</p>
+            </div>
+            <div class="kpi-card">
+                <i class="fa-solid fa-arrow-trend-up kpi-icon"></i>
+                <div class="kpi-value">4.2%</div>
+                <p class="kpi-label">Rata de Conversie (Medie)</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h3>Evoluție Vânzări (Campanii)</h3>
+                <select class="filter-select">
+                    <option value="30">Ultimele 30 zile</option>
+                    <option value="7">Ultima săptămână</option>
+                    <option value="90">Ultimele 90 zile</option>
+                </select>
+            </div>
+            <div class="card-body">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h3>Campanii Marketing</h3>
+                <input type="search" class="search-input" placeholder="Caută o campanie...">
+            </div>
+            <div class="card-body">
+                <div class="table-wrapper">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Nume Campanie</th>
+                                <th>Status</th>
+                                <th>Canal</th>
+                                <th>Buget</th>
+                                <th>Conversii</th>
+                                <th>ROI</th>
+                                <th>Acțiuni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Promovare "Tech Conference 2025"</td>
+                                <td><span class="status-badge status-active">Activă</span></td>
+                                <td>Facebook Ads</td>
+                                <td>1.500 RON</td>
+                                <td>120</td>
+                                <td class="roi-pozitiv">+150%</td>
+                                <td>
+                                    <button class="action-btn"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn"><i class="fa-solid fa-chart-line"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email campanie "Early Bird"</td>
+                                <td><span class="status-badge status-ended">Încheiată</span></td>
+                                <td>Email</td>
+                                <td>200 RON</td>
+                                <td>85</td>
+                                <td class="roi-pozitiv">+420%</td>
+                                <td>
+                                    <button class="action-btn"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn"><i class="fa-solid fa-chart-line"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Campanie Google Ads "Vara Festival"</td>
+                                <td><span class="status-badge status-planned">Planificată</span></td>
+                                <td>Google Ads</td>
+                                <td>3.000 RON</td>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>
+                                    <button class="action-btn"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn"><i class="fa-solid fa-chart-line"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Campanie TikTok Influenceri</td>
+                                <td><span class="status-badge status-active">Activă</span></td>
+                                <td>Social Media</td>
+                                <td>5.000 RON</td>
+                                <td>45</td>
+                                <td class="roi-negativ">-15%</td>
+                                <td>
+                                    <button class="action-btn"><i class="fa-solid fa-pencil"></i></button>
+                                    <button class="action-btn"><i class="fa-solid fa-chart-line"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="campaignModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Creare Campanie Nouă</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            
+            <form class="modal-body">
+                <div class="form-group">
+                    <label for="campaign-name">Nume Campanie</label>
+                    <input type="text" id="campaign-name" placeholder="Ex: Promovare Facebook TechWave">
+                </div>
+                
+                <div class="form-group">
+                    <label for="campaign-objective">Obiectiv Campanie</label>
+                    <select id="campaign-objective">
+                        <option value="vanzare">Vânzare Bilete</option>
+                        <option value="brand">Promovare Brand</option>
+                        <option value="fidelizare">Fidelizare</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="campaign-budget">Buget (RON)</label>
+                        <input type="number" id="campaign-budget" placeholder="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="campaign-channel">Canal Principal</label>
+                        <select id="campaign-channel">
+                            <option value="social">Social Media</option>
+                            <option value="email">Email</option>
+                            <option value="google">Google Ads</option>
+                            <option value="sms">SMS</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelModalBtn">Anulează</button>
+                    <button type="submit" class="btn btn-primary">Salvează Campanie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="marketing.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Bilete</title>
+    <link rel="stylesheet" href="pagina_bilete.css">
+</head>
+<body>
+
+     <nav class="sidebar">
+        
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="admin.html"> <i class="fa-solid fa-shapes"></i>
+                    Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-users"></i>
+                    Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bilete
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html" class="active">
+                    <i class="fa-solid fa-comments"></i>
+                    Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i>
+                    Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Setări
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main class="main-content">
+
+        <section id="eventSelectionView">
+            <h1 class="page-title">Management Bilete</h1>
+            <p class="page-subtitle">Selectează evenimentul pentru care dorești să vezi detaliile biletelor și check-in-ul.</p>
+
+            <div class="event-selection-grid">
+                
+                <div class="event-select-card">
+                    <img src="https://via.placeholder.com/400x200/7e3af2/ffffff?text=Festival" alt="Imagine Eveniment">
+                    <div class="event-select-content">
+                        <h3>Festival de primăvară</h3>
+                        <div class="event-meta">
+                            <span><i class="fa-solid fa-calendar-day"></i> Aprilie 20, 2024</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Arenele Romane</span>
+                        </div>
+                        <div class="event-stats">
+                            <span><i class="fa-solid fa-ticket"></i> 850 / 1000 vândute</span>
+                            <span class="status status-activ"><i class="fa-solid fa-circle"></i> Activ</span>
+                        </div>
+                        <button class="btn btn-primary btn-select-event" data-event-id="evt1" data-event-name="Festival de primăvară">
+                            Vezi Detalii Bilete <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="event-select-card">
+                     <img src="https://via.placeholder.com/400x200/444444/ffffff?text=Lansare" alt="Imagine Eveniment">
+                    <div class="event-select-content">
+                        <h3>Lansare Carte Tech</h3>
+                        <div class="event-meta">
+                            <span><i class="fa-solid fa-calendar-day"></i> Mai 5, 2024</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Biblioteca Națională</span>
+                        </div>
+                         <div class="event-stats">
+                            <span><i class="fa-solid fa-ticket"></i> 150 / 200 vândute</span>
+                            <span class="status status-activ"><i class="fa-solid fa-circle"></i> Activ</span>
+                        </div>
+                        <button class="btn btn-primary btn-select-event" data-event-id="evt2" data-event-name="Lansare Carte Tech">
+                            Vezi Detalii Bilete <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="event-select-card">
+                     <img src="https://via.placeholder.com/400x200/cccccc/ffffff?text=Finalizat" alt="Imagine Eveniment">
+                    <div class="event-select-content">
+                        <h3>Concert Acustic Vechi</h3>
+                        <div class="event-meta">
+                            <span><i class="fa-solid fa-calendar-day"></i> Martie 10, 2024</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Grădina Botanică</span>
+                        </div>
+                         <div class="event-stats">
+                            <span><i class="fa-solid fa-ticket"></i> 48 / 50 vândute</span>
+                            <span class="status status-finalizat"><i class="fa-solid fa-circle-check"></i> Finalizat</span>
+                        </div>
+                        <button class="btn btn-secondary btn-select-event" data-event-id="evt3" data-event-name="Concert Acustic Vechi">
+                            Vezi Detalii Bilete <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                </div>
+        </section>
+
+        <section id="ticketDetailsView" class="hidden">
+            <div class="page-header-details">
+                <button id="backToSelectionBtn" class="back-button"><i class="fa-solid fa-arrow-left"></i> Înapoi la Evenimente</button>
+                <h1 class="page-title" id="detailsEventName">Detalii Bilete</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary"><i class="fa-solid fa-qrcode"></i> Mod Scanare Check-in</button>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-file-export"></i> Export Listă (CSV)</button>
+                </div>
+            </div>
+
+            <div class="ticket-stats-grid">
+                
+                <div class="stat-card total-attendance">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-value" id="totalAttendees">650</div>
+                    <div class="stat-label">Participanți Prezenți (Live)</div>
+                    <div class="stat-progress">
+                        <progress id="progressTotal" value="65" max="100"></progress>
+                        <span id="progressTotalPercent">65% Scanați</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-ticket"></i></div>
+                    <div class="stat-value" id="totalSold">850</div>
+                    <div class="stat-label">Bilete Vândute (Total)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-door-open"></i></div>
+                    <div class="stat-value" id="totalScanned">650</div>
+                    <div class="stat-label">Bilete Scanate</div>
+                </div>
+                 <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-chair"></i></div>
+                    <div class="stat-value" id="totalRemaining">150</div>
+                    <div class="stat-label">Locuri Rămase Nevândute</div>
+                </div>
+
+            </div> <div class="card">
+                <div class="card-header">
+                    <h3>Statistici pe Tipuri de Bilete</h3>
+                    <div class="filters">
+                        <select class="filter-select">
+                            <option value="">Filtrează Tip Bilet</option>
+                            <option value="general">General</option>
+                            <option value="vip">VIP</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Tip Bilet</th>
+                                <th>Total Vândute</th>
+                                <th>Scanate</th>
+                                <th>Rămase Nescanate</th>
+                                <th>Procent Scanare</th>
+                                <th>Acțiuni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Bilet General</strong></td>
+                                <td>600 / 700</td>
+                                <td><span class="scanned-count">480</span></td>
+                                <td>120</td>
+                                <td>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 80%;"></div>
+                                        <span>80%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="action-btn btn-sm" title="Vezi lista participanților"><i class="fa-solid fa-users"></i></button>
+                                    <button class="action-btn btn-sm" title="Reemite bilete"><i class="fa-solid fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td><strong>VIP</strong></td>
+                                <td>100 / 100</td>
+                                <td><span class="scanned-count">95</span></td>
+                                <td>5</td>
+                                 <td>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 95%;"></div>
+                                        <span>95%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="action-btn btn-sm" title="Vezi lista participanților"><i class="fa-solid fa-users"></i></button>
+                                    <button class="action-btn btn-sm" title="Reemite bilete"><i class="fa-solid fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Early Bird (expirat)</strong></td>
+                                <td>150 / 150</td>
+                                <td><span class="scanned-count">145</span></td>
+                                <td>5</td>
+                                <td>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 96.7%;"></div>
+                                        <span>97%</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="action-btn btn-sm" title="Vezi lista participanților"><i class="fa-solid fa-users"></i></button>
+                                    <button class="action-btn btn-sm" title="Reemite bilete"><i class="fa-solid fa-envelope"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app-bilete.js" defer></script>
+</body>
+</html>

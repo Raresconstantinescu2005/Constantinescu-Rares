@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creează Eveniment Nou</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="pagina_evenimente.css">
+</head>
+<body>
+
+     <nav class="sidebar">
+        
+        <div class="admin-profile">
+            <img src="https://via.placeholder.com/100" alt="Poza Admin">
+            <h3 class="admin-name">Nume Prenume Admin</h3>
+            <p class="admin-email">admin@planup.ro</p>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="admin.html"> <i class="fa-solid fa-shapes"></i>
+                    Dashboard evenimente
+                </a>
+            </li>
+            <li>
+                <a href="finance.html">
+                    <i class="fa-solid fa-users"></i>
+                    Finance
+                </a>
+            </li>
+            <li>
+                <a href="pagina_evenimente.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Creeaza Evenimente
+                </a>
+            </li>
+            <li>
+                <a href="pagina_bilete.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Bilete
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    Marketing
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Analytics avansat
+                </a>
+            </li>
+            <li>
+                <a href="feedback.html" class="active">
+                    <i class="fa-solid fa-comments"></i>
+                    Feedback & Recenzii
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-robot"></i>
+                    Asistență & AI Assistant
+                </a>
+            </li>
+            <li class="nav-footer">
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Setări
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main class="main-content">
+        <h1 class="page-title">Creează un Eveniment Nou</h1>
+
+        <div class="form-creare-grid">
+
+            <div class="form-main-col">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Detalii Principale</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="titlu">Titlu Eveniment *</label>
+                            <input type="text" id="titlu" placeholder="Ex: Concert Incredibil de Vară">
+                        </div>
+                        <div class="form-group">
+                            <label for="descriere">Descriere *</label>
+                            <textarea id="descriere" rows="8" placeholder="Descrie evenimentul în detaliu..."></textarea>
+                            <small class="form-hint">Folosește formatare Markdown dacă dorești.</small>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data">Data și Ora Începerii *</label>
+                                <input type="datetime-local" id="data">
+                            </div>
+                            <div class="form-group">
+                                <label for="categorie">Categorie *</label>
+                                <select id="categorie">
+                                    <option>Concert</option>
+                                    <option>Festival</option>
+                                    <option>Teatru</option>
+                                    <option>Conferință</option>
+                                    <option>Workshop</option>
+                                    <option>Sportiv</option>
+                                    <option>Altele</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="locatie">Locația *</label>
+                            <input type="text" id="locatie" placeholder="Caută adresa sau locația...">
+                            <div class="map-placeholder">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                Harta va apărea aici după introducerea adresei
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tipuri de Bilete *</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="ticket-type-header">
+                            <span>Nume Bilet</span>
+                            <span>Preț (RON)</span>
+                            <span>Stoc</span>
+                            <span></span> </div>
+                        <div id="ticketTypesContainer">
+                            <div class="ticket-type-item">
+                                <input type="text" value="Bilet General" placeholder="Ex: General">
+                                <input type="number" step="0.01" value="100" placeholder="0.00">
+                                <input type="number" value="500" placeholder="Ex: 500">
+                                <button class="action-btn btn-danger" title="Șterge tip bilet"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <div class="ticket-type-item">
+                                <input type="text" value="VIP" placeholder="Ex: VIP">
+                                <input type="number" step="0.01" value="250" placeholder="0.00">
+                                <input type="number" value="50" placeholder="Ex: 50">
+                                <button class="action-btn btn-danger" title="Șterge tip bilet"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm add-ticket-btn" id="addTicketTypeBtn">
+                            <i class="fa-solid fa-plus"></i> Adaugă Tip Bilet
+                        </button>
+                        <button class="btn btn-secondary btn-sm save-tickets-btn" id="saveTicketsBtn">
+                            <i class="fa-solid fa-save"></i> Salvează Bilete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-sidebar-col">
+                <div class="card card-sticky">
+                    <div class="card-header">
+                        <h3>Publicare</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select>
+                                <option value="ciorna">Ciornă (Nu e vizibil)</option>
+                                <option value="public">Public (Vizibil pe site)</option>
+                                <option value="privat">Privat (Doar cu link)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-full">
+                            <i class="fa-solid fa-rocket"></i> Publică Evenimentul
+                        </button>
+                        <button class="btn btn-secondary btn-full">
+                            <i class="fa-solid fa-eye"></i> Preview
+                        </button>
+                        <button class="btn btn-link btn-full">Salvează ca Ciornă</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Imagine Principală *</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="image-upload-box">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Trage imaginea aici sau apasă</span>
+                            <small>Recomandat: 1200x600px</small>
+                            <input type="file" class="image-upload-input" accept="image/*">
+                        </div>
+                        <div class="image-preview hidden">
+                            <img src="#" alt="Previzualizare Imagine">
+                            <button class="remove-image-btn"><i class="fa-solid fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Setări Opționale</h3>
+                    </div>
+                     <div class="card-body">
+                         <div class="form-group">
+                            <label for="social-links">Linkuri Social Media (Opțional)</label>
+                            <input type="url" id="social-links" placeholder="Ex: https://facebook.com/evenimentul-tau">
+                        </div>
+                         <div class="form-group">
+                            <label for="refund-policy">Politică de Rambursare (Opțional)</label>
+                            <textarea id="refund-policy" rows="3" placeholder="Ex: Biletele nu sunt rambursabile."></textarea>
+                        </div>
+                         <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="recurrent"> Eveniment Recurent?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app-creare.js" defer></script>
+</body>
+</html>
